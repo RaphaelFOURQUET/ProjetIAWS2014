@@ -2,7 +2,7 @@ package scolarite
 
 /**
  *
- * @author franck Silvestre
+ * @author Raphael FOURQUET
  */
 class VeloStation {
 
