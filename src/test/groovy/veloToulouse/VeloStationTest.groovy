@@ -11,17 +11,27 @@ import veloToulouse.VeloStation
  */
 class VeloStationTest extends GroovyTestCase {
 	
+	VeloStation v = new VeloStation(
+		number:1,
+		name:"name",
+		adress:"adress",
+		status:"OPEN",
+		availableBike:20,
+		availableBikeStands:10
+		)
+	
 	void testToString() {
-		VeloStation v = new VeloStation(
-			number:1,
-			name:"name",
-			adress:"adress",
-			status:"status",
-			availableBike:20,
-			availableBikeStands:10)
-		assertEquals("status",v.status)
+		assertEquals("name",v.name)
 		println v.toString()
 		//println "NAME : "+v.name
+	}
+	
+	void testStationOuverte() {
+		assertTrue(v.stationOuverte())
+	}
+	
+	void testVeloDisponible() {
+		assertEquals(20,v.veloDisponible())
 	}
 
 }
