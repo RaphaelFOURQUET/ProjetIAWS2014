@@ -20,11 +20,14 @@ class VeloStationService {
 		  v = new VeloStation(
 				 number:json.number,
 				 name:json.name,
-				 adress:json.adress,
+				 adress:json.address,
 				 status:json.status,
-				 availableBike:json.availableBike,
-				 availableBikeStands:json.availableBikeStands
+				 availableBike:json.available_bikes,
+				 availableBikeStands:json.available_bike_stands
 		  )
+		}
+		else {
+			println "Erreur : impossible de récupérer la station demandée."
 		}
 		v
 	  }

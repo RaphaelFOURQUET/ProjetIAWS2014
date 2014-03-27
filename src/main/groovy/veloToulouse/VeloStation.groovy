@@ -7,13 +7,13 @@ package veloToulouse
  * @author Raphaël
  *
  */
-class VeloStation {
+class VeloStation extends StaticVeloStation {
 	
-	//contractName = "Toulouse"
-	Integer number
-	String name
-	String adress
-	//Position position
+//	//contractName = "Toulouse"
+//	Integer number
+//	String name
+//	String adress
+//	//Position position
 	String status
 	Integer availableBike
 	Integer availableBikeStands
