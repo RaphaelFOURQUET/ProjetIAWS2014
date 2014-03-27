@@ -9,7 +9,7 @@ import veloToulouse.VeloStation
  * @author Raphaël
  *
  */
-class VeloStationTest {
+class VeloStationTest extends GroovyTestCase {
 	
 	void testToString() {
 		VeloStation v = new VeloStation(
