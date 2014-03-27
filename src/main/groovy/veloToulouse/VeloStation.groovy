@@ -1,11 +1,14 @@
+/**
+ * 
+ */
 package veloToulouse
 
 /**
+ * @author Raphaël
  *
- * @author Raphael FOURQUET
  */
 class VeloStation {
-
+	
 	//contractName = "Toulouse"
 	Integer number
 	String name
@@ -17,7 +20,7 @@ class VeloStation {
 	
 	
 	String toString() {
-		def res = "$number $name $adress\n"
+		def res = "$number $name $adress $status\n"
 		res
 	  }
 

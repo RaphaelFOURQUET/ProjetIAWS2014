@@ -1,12 +1,15 @@
+/**
+ * 
+ */
 package veloToulouse
 
-import groovy.util.GroovyTestCase;
+import veloToulouse.VeloStation
 
 /**
+ * @author Raphaël
  *
- * @author Raphael FOURQUET
  */
-class VeloStationTest extends GroovyTestCase {
+class VeloStationTest {
 	
 	void testToString() {
 		VeloStation v = new VeloStation(
@@ -20,7 +23,5 @@ class VeloStationTest extends GroovyTestCase {
 		println v.toString()
 		//println "NAME : "+v.name
 	}
-
-
 
 }
