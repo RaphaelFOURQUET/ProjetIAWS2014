@@ -29,6 +29,11 @@ class VeloStationService {
 		v
 	  }
 	
+	/**
+	 * 
+	 * @param id integer représentant la station
+	 * @return nombre de velo disponibles ou -1 si erreur
+	 */
 	def veloDisponibleById(Integer id) {
 		VeloStation v = getVeloStationById(id)
 		return v.veloDisponible()

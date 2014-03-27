@@ -1,5 +1,6 @@
 /**
- * 
+ * API JCDecaux utilisée pour les informations sur le reseau VeloToulouse
+ * https://developer.jcdecaux.com/#/home
  */
 package veloToulouse.client
 
