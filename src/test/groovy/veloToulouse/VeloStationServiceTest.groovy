@@ -18,7 +18,7 @@ class VeloStationServiceTest extends GroovyTestCase {
 	
 	void testVeloDisponibleById() {
 		def res = vs.veloDisponibleById(227)
-		println res
+		println "velo disponible station 227 : "+res
 		assertTrue(res>=-1)
 	}
 
