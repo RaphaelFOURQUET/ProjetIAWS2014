@@ -2,6 +2,7 @@ package interfacejava;
 
 import javax.swing.JOptionPane;
 
+import veloToulouse.VeloStation;
 import veloToulouse.VeloStationService;
 
 /**
@@ -161,30 +162,33 @@ public class VeloStationFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Recuperer le radioButton choisi.
         Integer res = 0;
+        int id = 0;
         VeloStationService vs = new VeloStationService();
          //executer la requete velo pour mettre à jour res
         if(metroUPSRadioButton.isSelected()) {
-            //227
-        	res = (Integer) vs.veloDisponibleById(227);
+            id = 227;
+        	//res = (Integer) vs.veloDisponibleById(227);
         }
         if(rangueilRadioButton.isSelected()) {
-            //231
-        	res = (Integer) vs.veloDisponibleById(231);
+            id = 231;
+        	//res = (Integer) vs.veloDisponibleById(231);
         }
         if(metroPharmaRadioButton.isSelected()) {
-            //228
-        	res = (Integer) vs.veloDisponibleById(228);
+            id = 228;
+        	//res = (Integer) vs.veloDisponibleById(228);
         }
         if(tripodeBRadioButton.isSelected()) {
-            //230
-        	res = (Integer) vs.veloDisponibleById(230);
+            id = 230;
+        	//res = (Integer) vs.veloDisponibleById(230);
         }
+        VeloStation v = vs.getVeloStationById(id);
+        res = v.getAvailableBike();
         //ouvrir fenetre selon reponse
         //JOptionPane d = new JOptionPane();
         if(res==-1)
             JOptionPane.showMessageDialog( this, "Erreur : Station fermée", "Station Fermée", JOptionPane.ERROR_MESSAGE);
         else if(res>=0) {
-            JOptionPane.showMessageDialog( this, "Il y a "+res+" vélos disponibles sur cette station.", "Vélos disponibles", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog( this, "Il y a "+res+" vélo(s) disponible(s) et "+v.getAvailableBikeStands()+" point(s) d'attache disponible(s) sur cette station.", "Vélos disponibles", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
