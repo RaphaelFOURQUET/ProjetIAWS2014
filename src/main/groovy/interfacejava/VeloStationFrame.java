@@ -161,7 +161,7 @@ public class VeloStationFrame extends javax.swing.JFrame {
     private void sendRequestVeloButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         //Recuperer le radioButton choisi.
-        Integer res = 0;
+        Integer res = -2;
         int id = 0;
         VeloStationService vs = new VeloStationService();
          //executer la requete velo pour mettre à jour res
@@ -185,6 +185,8 @@ public class VeloStationFrame extends javax.swing.JFrame {
         res = v.getAvailableBike();
         //ouvrir fenetre selon reponse
         //JOptionPane d = new JOptionPane();
+        if(res==-2)
+        	JOptionPane.showMessageDialog( this, "Une erreur est survenue durant le traitement de la requète.", "Erreur traitement requète", JOptionPane.ERROR_MESSAGE);
         if(res==-1)
             JOptionPane.showMessageDialog( this, "Erreur : Station fermée", "Station Fermée", JOptionPane.ERROR_MESSAGE);
         else if(res>=0) {
