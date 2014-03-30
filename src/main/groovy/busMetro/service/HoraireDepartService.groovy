@@ -31,7 +31,7 @@ class HoraireDepartService {
 	 * @return String Horaire depart
 	 */
 	String chooseFirstGoodResult(def json, String destName) {
-		String res = "Erreur : No solution found"
+		String res = "\nNo solution found :\nPlus de départs imminents ou cette ligne est un métro."
 		json.departures.departure.each {
 			if(!it.isEmpty()) {//Attention le dernier départure est {}  get impossible dessus
 				//def t0 = it.destination.name

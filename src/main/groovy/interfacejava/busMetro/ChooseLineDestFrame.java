@@ -125,7 +125,7 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
     	String horaire = hds.getHoraireDepart(currentChoice.getArretId(), currentChoice.getLine().getLineId(), currentChoice.getDest().getDestinationName());
     	
         JOptionPane.showMessageDialog( this,
-        		"Le prochain départ pour l'arret "+currentChoice.getArretName()+" vers "+currentChoice.getDest().getDestinationName()+" est à : "+horaire+" !"
+        		"Le prochain départ pour l'arret "+currentChoice.getArretName()+" (ligne "+currentChoice.getLine().getShortName()+" ) vers "+currentChoice.getDest().getDestinationName()+" est à : "+horaire+" !"
         		, "Prochain départ", JOptionPane.INFORMATION_MESSAGE);
     }
 
