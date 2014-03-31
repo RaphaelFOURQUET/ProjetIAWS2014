@@ -18,7 +18,7 @@ import busMetro.client.ChoixLigneClient
  */
 class ChoixLigneService {
 	
-	/*Les 6 Zones d'arrets intéressantes à proposer à l'utilisateur*/
+	/*Les 6 Zones d'arrets intéressantes à retenir*/
 	ZoneArret champMagnetiqueArret = new ZoneArret(
 		arretId:"1970324837648738",
 		arretName:"Champs Magnétiques")
@@ -104,8 +104,7 @@ class ChoixLigneService {
 				}
 			}
 		}
-		//println "TEST"
-		println "Table : "+res
+		//println "Table : "+res
 		res
 	}
 	
