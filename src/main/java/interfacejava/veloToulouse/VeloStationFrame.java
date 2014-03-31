@@ -1,4 +1,4 @@
-package interfacejava;
+package interfacejava.veloToulouse;
 
 import javax.swing.JOptionPane;
 

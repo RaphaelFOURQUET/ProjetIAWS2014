@@ -4,6 +4,7 @@
 package interfacejava;
 
 import interfacejava.busMetro.ChooseLineDestFrame;
+import interfacejava.veloToulouse.VeloStationFrame;
 
 /**
  *
