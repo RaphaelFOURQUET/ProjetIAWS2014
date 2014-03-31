@@ -6,7 +6,6 @@ package couchdb
 
 class FirstCouchDBTest {
 	
-	//l'import jar couchdb4j ne semble pas marcher
 	//Session s = new Session("localhost", 5984)
 
 }
