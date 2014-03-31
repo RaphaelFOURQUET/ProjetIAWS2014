@@ -25,18 +25,7 @@ public class ModeleStatiqueLineDest extends AbstractTableModel {
         super();
  
         //TODO A verifier de près (pour le cast notamment)
-        //Remplacer ami par appel méthode..
         lineDestArrets = (ArrayList<LineDestArret>) choixLigneService.getLigneDestUniversite();
-        		
-        		/*new Ami[]{
-                new Ami("Johnathan", "Sykes", Color.red, true, Sport.TENNIS),
-                new Ami("Nicolas", "Van de Kampf", Color.black, true, Sport.FOOTBALL),
-                new Ami("Damien", "Cuthbert", Color.cyan, true, Sport.RIEN),
-                new Ami("Corinne", "Valance", Color.blue, false, Sport.NATATION),
-                new Ami("Emilie", "Schrödinger", Color.magenta, false, Sport.FOOTBALL),
-                new Ami("Delphine", "Duke", Color.yellow, false, Sport.TENNIS),
-                new Ami("Eric", "Trump", Color.pink, true, Sport.FOOTBALL)
-        };*/
     }
  
     public int getRowCount() {
