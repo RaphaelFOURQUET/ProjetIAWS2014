@@ -15,5 +15,10 @@ class VeloStationClientTest extends GroovyTestCase {
 		def json = v.getJsonVeloStation(227)
 		assertNotNull(json)
 	}
+	
+	void testGetAllJsonVeloStation() {
+		def json = v.getAllJsonVeloStation()
+		assertNotNull(json)
+	}
 
 }

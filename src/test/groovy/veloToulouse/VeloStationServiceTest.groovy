@@ -21,5 +21,10 @@ class VeloStationServiceTest extends GroovyTestCase {
 		println "velo disponible station 227 : "+res
 		assertTrue(res>=-1)
 	}
+	
+	void testAllVeloStation() {
+		def res = vs.allVeloStation()
+		assertNotNull(res)
+	}
 
 }

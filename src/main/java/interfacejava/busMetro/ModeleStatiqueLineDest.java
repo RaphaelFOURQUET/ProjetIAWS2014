@@ -18,6 +18,8 @@ public class ModeleStatiqueLineDest extends AbstractTableModel {
     private final String[] entetes = {"Id Arret", "Nom Arret",
         "Id Destination", "Nom Destination", "Id Ligne", "Nom Ligne", "Numero Ligne"};
     
+    //private final String[] entetes = {"Nom Arret", "Nom Destination", "Nom Ligne", "Numero Ligne"};
+    
     ChoixLigneService choixLigneService = new ChoixLigneService();
  
     @SuppressWarnings("unchecked")
@@ -60,4 +62,19 @@ public class ModeleStatiqueLineDest extends AbstractTableModel {
                 return null; //Ne devrait jamais arriver
         }
     }
+    
+//    public Object getValueAt(int rowIndex, int columnIndex) {
+//        switch(columnIndex){
+//            case 0:
+//                return ((LineDestArret) lineDestArrets.get(rowIndex)).getArretName();
+//            case 1:
+//                return ((LineDestArret) lineDestArrets.get(rowIndex)).getDest().getDestinationName();
+//            case 2:
+//                return ((LineDestArret) lineDestArrets.get(rowIndex)).getLine().getLineName();
+//            case 3:
+//                return ((LineDestArret) lineDestArrets.get(rowIndex)).getLine().getShortName();
+//            default:
+//                return null; //Ne devrait jamais arriver
+//        }
+//    }
 }

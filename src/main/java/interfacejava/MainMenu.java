@@ -4,7 +4,7 @@
 package interfacejava;
 
 import interfacejava.busMetro.ChooseLineDestFrame;
-import interfacejava.veloToulouse.VeloStationFrame;
+import interfacejava.veloToulouse.ChooseVeloStationFrame;
 
 /**
  *
@@ -125,7 +125,7 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void veloDisponibleButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        new VeloStationFrame().setVisible(true);
+        new ChooseVeloStationFrame().setVisible(true);
     }
 
     /**
