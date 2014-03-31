@@ -24,7 +24,7 @@ public class ModeleStatiqueLineDest extends AbstractTableModel {
 	public ModeleStatiqueLineDest() {
         super();
  
-        //TODO A verifier de près (pour le cast notamment)
+        //A verifier de près (pour le cast notamment)
         lineDestArrets = (ArrayList<LineDestArret>) choixLigneService.getLigneDestUniversite();
     }
  

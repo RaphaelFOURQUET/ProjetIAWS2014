@@ -109,7 +109,6 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void lineDestTableMouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
         int ligne;
         ligne = lineDestTable.getSelectedRow();
         currentChoice = lineToChoice(ligne);
@@ -117,7 +116,6 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
     }
 
     private void rechercheButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     	//recuperer l'horaire depart
     	HoraireDepartService hds = new HoraireDepartService();
     	String horaire = hds.getHoraireDepart(currentChoice.getArretId(), currentChoice.getLine().getLineId(), currentChoice.getDest().getDestinationName());
