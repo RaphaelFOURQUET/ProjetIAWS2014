@@ -8,7 +8,7 @@ import busMetro.LineDestArret;
 import busMetro.service.ChoixLigneService;
 
 /**
- *
+ * Déprécié au profit du modele dynamique avec filtre.
  * @author Raphaël
  */
 @SuppressWarnings("serial")

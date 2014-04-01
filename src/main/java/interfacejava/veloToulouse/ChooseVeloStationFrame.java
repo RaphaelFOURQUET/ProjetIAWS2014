@@ -34,6 +34,7 @@ public class ChooseVeloStationFrame extends javax.swing.JFrame {
 
        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+       jTextPane1.setEditable(false);
        jTextPane1.setText("Choisissez une station de départ.");
        jScrollPane1.setViewportView(jTextPane1);
 

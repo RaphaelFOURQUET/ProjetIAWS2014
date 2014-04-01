@@ -3,13 +3,7 @@
  */
 package interfacejava.veloToulouse;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
-import busMetro.Destination;
-import busMetro.Ligne;
-import busMetro.LineDestArret;
 
 import veloToulouse.StaticVeloStation;
 import veloToulouse.VeloStation;
@@ -19,6 +13,7 @@ import veloToulouse.VeloStationService;
  *
  * @author Raphaël
  */
+@SuppressWarnings("serial")
 public class AllVeloStationFrame extends javax.swing.JFrame {
     
     //Attributes
@@ -49,6 +44,7 @@ public class AllVeloStationFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jTextPane1.setEditable(false);
         jTextPane1.setText("Choisissez une station de vélos.");
         jScrollPane1.setViewportView(jTextPane1);
 
