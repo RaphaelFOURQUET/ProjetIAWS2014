@@ -4,8 +4,10 @@ package couchdb
 //import com.fourspaces.couchdb.Session
 
 
-class FirstCouchDBTest {
+class FirstCouchDB4J {
 	
-	//Session s = new Session("localhost", 5984)
+//	public static void main() {
+//		Session s = new Session("localhost", 5984)
+//	}
 
 }

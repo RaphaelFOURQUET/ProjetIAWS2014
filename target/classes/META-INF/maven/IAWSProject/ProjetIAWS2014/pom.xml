@@ -33,6 +33,25 @@
                 <artifactId>http-builder</artifactId>
                 <version>0.5.2</version>
             </dependency>
+            
+            <dependency>
+   				<groupId>com.google.code.jcouchdb</groupId>
+    			<artifactId>jcouchdb</artifactId>
+   				<version>1.0.1-1</version>
+			</dependency>
+            
+          	<!-- <dependency>
+      			<groupId>com.fourspaces.couchdb4j</groupId>
+      			<artifactId>couchdb4j</artifactId>
+      			<version>0.3.0-tobrien-1</version>
+    		</dependency> -->
+    		
+    		<!-- <dependency>
+   				<groupId>couchdb4j</groupId>
+    			<artifactId>couchdb4j</artifactId>
+    			<version>0.3.0-i386-1</version>
+    		</dependency> -->
+            
         </dependencies>
 
         <build>
@@ -57,6 +76,7 @@
                     <version>1.4</version>
                		<configuration>
                         <providerSelection>1.8</providerSelection>
+                        <!-- <mainClass>ProjetIAWS2014.src.main.java.interfacejava.MainMenu</mainClass> --> <!-- A tester -->
                     </configuration>
                     <executions>
                         <execution>
@@ -70,6 +90,7 @@
                     </executions>
                 </plugin>
             </plugins>
+            
             <!-- </pluginManagement> -->
             
             

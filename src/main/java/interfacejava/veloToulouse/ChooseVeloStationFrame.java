@@ -45,7 +45,7 @@ public class ChooseVeloStationFrame extends javax.swing.JFrame {
            }
        });
 
-       AllVeloStations.setText("Autres stations");
+       AllVeloStations.setText("Toutes les stations");
        AllVeloStations.addActionListener(new java.awt.event.ActionListener() {
            public void actionPerformed(java.awt.event.ActionEvent evt) {
                AllVeloStationsActionPerformed(evt);
