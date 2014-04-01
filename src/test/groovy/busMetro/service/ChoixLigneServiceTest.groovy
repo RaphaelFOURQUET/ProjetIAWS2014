@@ -12,9 +12,9 @@ class ChoixLigneServiceTest extends GroovyTestCase {
 	ChoixLigneService choixLigneService = new ChoixLigneService()
 	
 	void testGetLigneDestUniversite() {
-		
-		choixLigneService.getLigneDestUniversite()
-		assertTrue(true)//TODO
+		def res = null
+		res = choixLigneService.getLigneDestUniversite()
+		assertNotNull(res)
 		
 	}
 

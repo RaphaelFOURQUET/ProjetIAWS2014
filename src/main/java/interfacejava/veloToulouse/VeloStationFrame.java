@@ -139,27 +139,22 @@ public class VeloStationFrame extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void tripodeBRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         setOKEnabled(true);
     }
 
     private void metroUPSRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         setOKEnabled(true);
     }
 
     private void rangueilRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         setOKEnabled(true);
     }
 
     private void metroPharmaRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         setOKEnabled(true);
     }
 
     private void sendRequestVeloButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         //Recuperer le radioButton choisi.
         Integer res = -2;
         int id = 0;

@@ -221,7 +221,6 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
       }
       
       private void numeroLigneTextFieldKeyReleased(java.awt.event.KeyEvent evt) {
-          // TODO add your handling code here:
           lineDestTable.setModel(new ModeleDynamiqueLineDest(numeroLigneTextField.getText()));
       }
         

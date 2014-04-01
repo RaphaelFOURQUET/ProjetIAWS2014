@@ -119,12 +119,10 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     	new ChooseLineDestFrame().setVisible(true);
     }
     
     private void veloDisponibleButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         new ChooseVeloStationFrame().setVisible(true);
     }
 

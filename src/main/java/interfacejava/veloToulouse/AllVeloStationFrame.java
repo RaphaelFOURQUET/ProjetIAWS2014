@@ -108,15 +108,14 @@ public class AllVeloStationFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    @SuppressWarnings("static-access")
-	private void lancerRechercheActionPerformed(java.awt.event.ActionEvent evt) {
+    private void lancerRechercheActionPerformed(java.awt.event.ActionEvent evt) {
     	int res = 0;    	
     	VeloStationService vs = new VeloStationService();
-        //TODO executer la requete velo pour mettre à jour res
+        //Executer la requete velo pour mettre à jour res
     	VeloStation v = vs.getVeloStationById(currentChoice.getNumber());
         res = v.getAvailableBike();
         //ouvrir fenetre selon reponse
-        JOptionPane d = new JOptionPane();
+        //JOptionPane d = new JOptionPane();
         if(res==-2)
         	JOptionPane.showMessageDialog( this, "Une erreur est survenue durant le traitement de la requète.", "Erreur traitement requète", JOptionPane.ERROR_MESSAGE);
         if(res==-1)
