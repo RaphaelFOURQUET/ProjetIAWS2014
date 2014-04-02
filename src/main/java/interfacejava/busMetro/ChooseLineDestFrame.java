@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import busMetro.Destination;
 import busMetro.Ligne;
 import busMetro.LineDestArret;
+import busMetro.service.ChoixLigneService;
 import busMetro.service.HoraireDepartService;
 
 /**
@@ -188,12 +189,27 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
     	HoraireDepartService hds = new HoraireDepartService();
     	String horaire = hds.getHoraireDepart(currentChoice.getArretId(), currentChoice.getLine().getLineId(), currentChoice.getDest().getDestinationName());
     	
-        JOptionPane.showMessageDialog( this,
-        		"Le prochain départ pour l'arret "+currentChoice.getArretName()+" (ligne "+currentChoice.getLine().getShortName()+" ) vers "+currentChoice.getDest().getDestinationName()+" est à : "+horaire+" !"
+    	if(!isMetroLine(currentChoice.getLine().getLineId()))
+    	{
+    		JOptionPane.showMessageDialog( this,
+        		"Le prochain départ pour l'arret "+currentChoice.getArretName()+" (ligne "+currentChoice.getLine().getShortName()+") vers "+currentChoice.getDest().getDestinationName()+" est à : "+horaire+" !"
         		, "Prochain départ", JOptionPane.INFORMATION_MESSAGE);
+    	}
+    	else {//isMetro
+    		JOptionPane.showMessageDialog( this,
+            		"Le prochain départ pour l'arret "+currentChoice.getArretName()+" (ligne "+currentChoice.getLine().getShortName()+") vers "+currentChoice.getDest().getDestinationName()+" est à :\n" +
+            		"Information non disponible pour les métros : en fonctionnement de 5h00 à 00h00 (1h00 le vendredi/samedi) avec des trames toutes les 1 à 10 minutes. !"
+            		, "Prochain départ", JOptionPane.INFORMATION_MESSAGE);
+    	}
     }
 
-    private void setRechercheEnabled(boolean b) {
+    private boolean isMetroLine(String lineId) {
+    	ChoixLigneService cls = new ChoixLigneService();
+    	boolean res = cls.isMetroLine(lineId);
+		return res;
+	}
+
+	private void setRechercheEnabled(boolean b) {
         rechercheButton.setEnabled(b);
     }
      
@@ -221,6 +237,7 @@ public class ChooseLineDestFrame extends javax.swing.JFrame {
       }
       
       private void numeroLigneTextFieldKeyReleased(java.awt.event.KeyEvent evt) {
+    	  setRechercheEnabled(false);
           lineDestTable.setModel(new ModeleDynamiqueLineDest(numeroLigneTextField.getText()));
       }
         

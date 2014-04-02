@@ -31,24 +31,17 @@ class HoraireDepartService {
 	 * @return String Horaire depart
 	 */
 	String chooseFirstGoodResult(def json, String destName) {
-		String res = "\nNo solution found :\nPlus de départs imminents ou cette ligne est un métro."
+		String res = "\nNo solution found :\nPlus de départs imminents."
 		json.departures.departure.each {
 			if(!it.isEmpty()) {//Attention le dernier départure est {}  get impossible dessus
-				//def t0 = it.destination.name
 				String t1 = it.destination.get(0).name
-				//def t2 = it.destination.get(0).getName()
-				//def t3 = t1.equals(destName)
-				//println "tests"
 				
 				if(t1.equals(destName)) {
-					res = it.dateTime // on ne peut pas return dans une closure
-					//println "TEST2"
+					res = it.dateTime // !! on ne peut pas return dans une closure
 				}
 			}
 		}
 		return res
-		//Pas de solutions
-		//return "Erreur : No solution found"
 	}
 
 }

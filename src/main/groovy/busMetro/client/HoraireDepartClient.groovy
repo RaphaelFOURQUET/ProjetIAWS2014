@@ -11,7 +11,8 @@ import static groovyx.net.http.ContentType.JSON
 
 /**
  * @author Raphaël
- *
+ * Les données sont fournies par l'API Open Data Tisseo :
+ *  licence ODbL (http://data.toulouse-metropole.fr/la-licence).
  */
 class HoraireDepartClient {
 	

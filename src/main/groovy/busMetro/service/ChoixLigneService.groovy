@@ -108,5 +108,12 @@ class ChoixLigneService {
 		res
 	}
 	
+	boolean isMetroLine(String lineId) {
+		def json = choixLigneClient.getJsonLine(lineId)
+		if(json) {
+			return ( (json.lines.line.transportMode.name.get(0)).equals("métro") )
+		}
+	}
+	
 
 }
