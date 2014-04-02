@@ -4,6 +4,7 @@
  */
 package veloToulouse.client
 
+import data.MyLogsData
 import groovyx.net.http.HTTPBuilder
 import groovyx.net.http.Method
 import veloToulouse.VeloStation
@@ -18,7 +19,7 @@ class VeloStationClient {
 	
 	def getJsonVeloStation(Integer id) {
 		def res = null
-		def http = new HTTPBuilder("https://api.jcdecaux.com/vls/v1/stations/${id}?contract=Toulouse&apiKey=9882ff33d68063c700fd4764aca42067f4cb6b21")
+		def http = new HTTPBuilder("https://api.jcdecaux.com/vls/v1/stations/${id}?contract=Toulouse&apiKey=${MyLogsData.VELO_KEY}")
 		http.request(Method.GET, JSON) {
 		  //uri.path = 
 		  response.success = {
