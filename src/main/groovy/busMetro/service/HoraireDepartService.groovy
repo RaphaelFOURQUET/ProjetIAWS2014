@@ -20,7 +20,7 @@ class HoraireDepartService {
 		 res = chooseFirstGoodResult(json, destName)
 		}
 		else {
-			println "Erreur : impossible de récupérer la station demandée."
+			println "\nErreur : impossible de récupérer la station demandée."
 		}
 		res
 	}
