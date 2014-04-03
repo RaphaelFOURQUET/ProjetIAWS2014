@@ -4,6 +4,7 @@
 package interfacejava;
 
 import interfacejava.busMetro.ChooseLineDestFrame;
+import interfacejava.busMetro.SocialLineFrame;
 import interfacejava.veloToulouse.ChooseVeloStationFrame;
 
 /**
@@ -46,7 +47,12 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Votez pour une ligne.");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("jButton3");
 
@@ -120,6 +126,10 @@ public class MainMenu extends javax.swing.JFrame {
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
     	new ChooseLineDestFrame().setVisible(true);
+    }
+	
+	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    	new SocialLineFrame().setVisible(true);
     }
     
     private void veloDisponibleButtonActionPerformed(java.awt.event.ActionEvent evt) {

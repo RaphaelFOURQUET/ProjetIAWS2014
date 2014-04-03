@@ -3,12 +3,20 @@
  */
 package busMetro.service
 
+import java.awt.geom.LineIterator;
 import java.util.ArrayList;
+
+import com.fourspaces.couchdb.Database;
+import com.fourspaces.couchdb.Document;
+import com.fourspaces.couchdb.Session
+import couchdb.DBInteraction;
+import data.MyLogsData;
 
 import busMetro.ArretPhysique;
 import busMetro.Destination
 import busMetro.Ligne;
 import busMetro.LineDestArret;
+import busMetro.SocialLine;
 import busMetro.ZoneArret
 import busMetro.client.ChoixLigneClient
 
@@ -114,6 +122,69 @@ class ChoixLigneService {
 			return ( (json.lines.line.transportMode.name.get(0)).equals("métro") )
 		}
 	}
+	
+	/**
+	 * Recuperer les SocialLine en DB ou en creer de nouvelles si
+	 *  pas en DB.
+	 * @return
+	 */
+	ArrayList<SocialLine> getAllSocialLines() {
+		ArrayList<SocialLine> res = new ArrayList<SocialLine>()
+		SocialLine currentSocialLine
+		
+		/*Paraméter la db pour récuperer les données si elles existent*/
+		DBInteraction dbi = new DBInteraction()
+		Session s = dbi.createSession(MyLogsData.DB_HOST, MyLogsData.DB_PORT)
+		Database db = dbi.createOrGetDatabase(MyLogsData.DB_NAME, s)
+		Document d = dbi.createOrGetDocument(db)
+		
+		def json = choixLigneClient.getAllJsonLines()
+		if(json) {
+			json.lines.line.each {
+				if(dbi.keyInDocument(d, it.id)) {
+					/*Recuperer depuis DB et mettre en liste*/
+					currentSocialLine = dbi.getSocialLine(d, it.id)
+					res+=currentSocialLine
+				} else { /*mettre en DB et en liste*/
+					currentSocialLine = new SocialLine(
+						lineId:it.id,
+						lineName:it.name,
+						shortName:it.shortName)
+					dbi.putSocialLine(d, it.id, currentSocialLine)
+					res+=currentSocialLine
+				}
+				 
+			}
+		}
+		//mettre à jour DB ?
+		dbi.saveDocument(db, d)
+		return res
+	}
+	
+	def majLike(SocialLine sl) {
+		sl.like()
+		
+		DBInteraction dbi = new DBInteraction()
+		Session s = dbi.createSession(MyLogsData.DB_HOST, MyLogsData.DB_PORT)
+		Database db = dbi.createOrGetDatabase(MyLogsData.DB_NAME, s)
+		Document d = dbi.createOrGetDocument(db)
+		
+		dbi.putSocialLine(d, sl.lineId, sl)
+		dbi.saveDocument(db, d)
+	}
+	
+	def majUnlike(SocialLine sl) {
+		sl.unlike()
+		
+		DBInteraction dbi = new DBInteraction()
+		Session s = dbi.createSession(MyLogsData.DB_HOST, MyLogsData.DB_PORT)
+		Database db = dbi.createOrGetDatabase(MyLogsData.DB_NAME, s)
+		Document d = dbi.createOrGetDocument(db)
+		
+		dbi.putSocialLine(d, sl.lineId, sl)
+		dbi.saveDocument(db, d)
+	}
+	
 	
 
 }
