@@ -5,7 +5,7 @@ package busMetro
 
 /**
  * @author Raphaël
- *
+ * Destination selon la definition Tisséo.
  */
 class Destination {
 	

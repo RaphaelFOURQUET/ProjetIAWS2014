@@ -9,7 +9,12 @@ import com.fourspaces.couchdb.Document
 import com.fourspaces.couchdb.Session
 import com.fourspaces.couchdb.ViewResults;
 
-
+/**
+ * @author Raphaël
+ * Mes premiers tests (laborieux) sur couchDB4J, classe d'entrainement non necessaire
+ * au fonctionnement de l'application.
+ *
+ */
 class FirstCouchDB4J {
 	
 	void usage() {

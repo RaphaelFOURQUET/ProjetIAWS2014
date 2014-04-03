@@ -22,7 +22,7 @@ import busMetro.client.ChoixLigneClient
 
 /**
  * @author Raphaël
- *
+ * Service : Servira pour les cas d'utilisation 1 et 2 notamment.
  */
 class ChoixLigneService {
 	
@@ -55,6 +55,11 @@ class ChoixLigneService {
 	
 	ChoixLigneClient choixLigneClient = new ChoixLigneClient()
 	
+	/**
+	 * Recupere la requete json contenant lignes et destinations pour l'université 
+	 * et cree la liste des arrets physiques.
+	 * @return liste des arrets physiques compatibles.
+	 */
 	def getLigneDestUniversite() {
 		def lineChoiceTable = []
 		def arretPhysiqueList = []
@@ -76,7 +81,7 @@ class ChoixLigneService {
 	 * Transforme la liste des arrets physiques en collection
 	 * utilisable par une jTable.
 	 * @param arretPList liste des arrets physiques.
-	 * @return
+	 * @return ArrayList des LineDestArret.
 	 */
 	ArrayList<LineDestArret> toTable(def arretPList) {
 		ArrayList<LineDestArret> res = new ArrayList<LineDestArret>()
@@ -116,6 +121,11 @@ class ChoixLigneService {
 		res
 	}
 	
+	/**
+	 * Verifie si la ligne est une ligne de metro ou pas.
+	 * @param lineId ID de la ligne ciblee.
+	 * @return boolean est une ligne de metro ?
+	 */
 	boolean isMetroLine(String lineId) {
 		def json = choixLigneClient.getJsonLine(lineId)
 		if(json) {
@@ -126,7 +136,7 @@ class ChoixLigneService {
 	/**
 	 * Recuperer les SocialLine en DB ou en creer de nouvelles si
 	 *  pas en DB.
-	 * @return
+	 * @return Liste des SocialLine.
 	 */
 	ArrayList<SocialLine> getAllSocialLines() {
 		ArrayList<SocialLine> res = new ArrayList<SocialLine>()
@@ -161,7 +171,11 @@ class ChoixLigneService {
 		return res
 	}
 	
-	def majLike(SocialLine sl) {
+	/**
+	 * Ajoute un like a une SocialLine, et met à jour la BdD.
+	 * @param sl SocialLine ciblee.
+	 */
+	void majLike(SocialLine sl) {
 		sl.like()
 		
 		DBInteraction dbi = new DBInteraction()
@@ -173,7 +187,11 @@ class ChoixLigneService {
 		dbi.saveDocument(db, d)
 	}
 	
-	def majUnlike(SocialLine sl) {
+	/**
+	 * Ajoute un unlike a une SocialLine, et met à jour la BdD.
+	 * @param sl SocialLine ciblee
+	 */
+	void majUnlike(SocialLine sl) {
 		sl.unlike()
 		
 		DBInteraction dbi = new DBInteraction()

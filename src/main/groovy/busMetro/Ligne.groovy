@@ -5,7 +5,7 @@ package busMetro
 
 /**
  * @author Raphaël
- *
+ * Ligne de bus ou métro Tisséo.
  */
 class Ligne {
 	

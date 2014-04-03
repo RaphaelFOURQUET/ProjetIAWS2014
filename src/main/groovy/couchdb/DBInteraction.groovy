@@ -12,10 +12,16 @@ import com.fourspaces.couchdb.ViewResults;
 
 /**
  * @author Raphaël
- *
+ * interactions avec la BdD.
  */
 class DBInteraction {
 	
+	/**
+	 * Creer une session couchdb4j.
+	 * @param host
+	 * @param port
+	 * @return Session.
+	 */
 	Session createSession(String host, int port) {
 		Session session = new Session(host, port)
 		return session
@@ -23,6 +29,12 @@ class DBInteraction {
 	
 	//Genere un warning quand on essaie de creer une db existante? faire autrement ?
 	//Peut etre plutôt essayer de récupérer en premier.
+	/**
+	 * Creer ou recuperer une database couchdb.
+	 * @param dbName Nom database.
+	 * @param dbSession Session couchdb4j.
+	 * @return Database au sens couchdb4j.
+	 */
 	Database createOrGetDatabase(String dbName, Session dbSession) {
 		Database db = dbSession.createDatabase(dbName)
 		/*Si db de ce nom existe deja*/
@@ -34,6 +46,11 @@ class DBInteraction {
 	}
 	
 	/*Work only if there is only ONE document in the DB ???*/
+	/**
+	 * Creer ou recuperer un document couchdb.
+	 * @param db Database.
+	 * @return Document au sens couchdb4j.
+	 */
 	Document createOrGetDocument(Database db) {
 		Document res
 		/*Fetching all Document to ViewResult object*/
@@ -60,6 +77,12 @@ class DBInteraction {
 		d.put(key, sl)
 	}
 	
+	/**
+	 * Met à jour le document dans la BdD.
+	 * @param db Database
+	 * @param d Document couchdb
+	 * @return
+	 */
 	def saveDocument(Database db, Document d) {
 		db.saveDocument(d)
 	}

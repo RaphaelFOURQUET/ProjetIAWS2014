@@ -5,7 +5,7 @@ package busMetro
 
 /**
  * @author Raphaël
- *
+ * Triplet Ligne/Destination/Arret(de bus ou de métro).
  */
 class LineDestArret {
 	

@@ -5,7 +5,7 @@ package busMetro
 
 /**
  * @author Raphaël
- *
+ * StopArea Tisseo.
  */
 class ZoneArret {
 	

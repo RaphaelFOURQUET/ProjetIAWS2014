@@ -10,12 +10,17 @@ import veloToulouse.client.VeloStationClient
 
 /**
  * @author Raphaël
- *
+ * Service : Servira pour les cas d'utilisation 3 et 4 notamment.
  */
 class VeloStationService {
 	
 	VeloStationClient veloStationClient = new VeloStationClient()
 	
+	/**
+	 * Cree la VeloStation correspondante a l'id donnee.
+	 * @param id ID veloStation ciblee.
+	 * @return VeloStation voulue ou null.
+	 */
 	VeloStation getVeloStationById(Integer id) {
 		VeloStation v = null
 		def json = veloStationClient.getJsonVeloStation(id)

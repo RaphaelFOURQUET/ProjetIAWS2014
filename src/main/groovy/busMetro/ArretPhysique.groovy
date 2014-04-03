@@ -5,7 +5,7 @@ package busMetro
 
 /**
  * @author Raphaël
- *
+ * Correspond aux PhysocalStop de l'api Tisseo.
  */
 class ArretPhysique {
 	

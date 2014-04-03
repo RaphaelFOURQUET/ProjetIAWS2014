@@ -7,12 +7,19 @@ import busMetro.client.HoraireDepartClient
 
 /**
  * @author Raphaël
- *
+ * Service : Servira pour le cas d'utilisation 1 notamment.
  */
 class HoraireDepartService {
 	
 	HoraireDepartClient hdClient = new HoraireDepartClient();
 	
+	/**
+	 * Retourne le premier horaire de depart pour l'arret, la ligne et la destination voulue.
+	 * @param idArret ID arret cible.
+	 * @param idLine ID ligne ciblee.
+	 * @param destName Nom destination ciblee.
+	 * @return String Horaire depart
+	 */
 	String getHoraireDepart(String idArret, String idLine, String destName) {
 		String res
 		def json = hdClient.getJsonDepart(idArret, idLine)
