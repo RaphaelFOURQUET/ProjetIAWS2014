@@ -1,8 +1,9 @@
 /**
  * 
  */
-package veloToulouse
+package veloToulouse.service
 
+import veloToulouse.VeloStation;
 import veloToulouse.service.VeloStationService;
 
 /**

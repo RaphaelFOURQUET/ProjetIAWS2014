@@ -9,8 +9,8 @@ package data
  */
 class Position {
 	
-	Integer latitude
+	String latitude
 	
-	Integer longitude
+	String longitude
 
 }

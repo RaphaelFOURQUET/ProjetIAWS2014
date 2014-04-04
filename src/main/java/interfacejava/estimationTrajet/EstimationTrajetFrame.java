@@ -5,6 +5,8 @@ package interfacejava.estimationTrajet;
 
 import javax.swing.JOptionPane;
 
+import veloToulouse.service.EstimationTrajetVeloService;
+
 /**
 *
 * @author Raphaël
@@ -98,9 +100,10 @@ public class EstimationTrajetFrame extends javax.swing.JFrame {
    }// </editor-fold>
 
    private void veloButtonActionPerformed(java.awt.event.ActionEvent evt) {
+	   EstimationTrajetVeloService etvs = new EstimationTrajetVeloService();
        String adresse = adresseTextField.getText();
        //TODO appel fonctions nécessaires au calcul du temps de trajet.
-       String res = "";
+       String res = etvs.calculDureeTrajet(adresse);
        //Affichage JoptionPane reponse.
        JOptionPane.showMessageDialog( this, "La durée de trajet à vélo estimé depuis l'UPS pour "+adresse+" est de "+res+" !", "Estimation trajet à vélo.", JOptionPane.INFORMATION_MESSAGE);
    }

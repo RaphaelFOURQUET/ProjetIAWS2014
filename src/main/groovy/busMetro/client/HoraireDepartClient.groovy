@@ -3,12 +3,9 @@
  */
 package busMetro.client
 
-import data.MyLogsData;
-import groovyx.net.http.HTTPBuilder
-import groovyx.net.http.Method
-import httprequest.HTTPRequest;
-
 import static groovyx.net.http.ContentType.JSON
+import httprequest.HTTPRequest
+import data.MyLogsData
 
 /**
  * @author Raphaël

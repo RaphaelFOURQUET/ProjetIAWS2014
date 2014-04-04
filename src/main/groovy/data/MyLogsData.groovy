@@ -36,6 +36,11 @@ class MyLogsData {
 	private static final String DB_NAME = "iawsdb"
 	
 	/**
+	 * Cle acces API GOOGLE utilisees.
+	 */
+	private static final String GOOGLE_KEY = "AIzaSyD_2aZn-8VLOi7s26UBRzsvl4QkXVUeayE"
+	
+	/**
 	 * Un seul Constructeur privé pour empécher de creer des instances de MyLogsData.
 	 */
 	private MyLogsData() {}
