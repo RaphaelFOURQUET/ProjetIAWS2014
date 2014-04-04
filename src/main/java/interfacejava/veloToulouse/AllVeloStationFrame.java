@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import veloToulouse.StaticVeloStation;
 import veloToulouse.VeloStation;
-import veloToulouse.VeloStationService;
+import veloToulouse.service.VeloStationService;
 
 /**
  *
@@ -69,7 +69,8 @@ public class AllVeloStationFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                //.addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, Short.MAX_VALUE)
                 .addGap(0, 10, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(164, 164, 164)

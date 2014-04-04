@@ -3,6 +3,8 @@
  */
 package veloToulouse
 
+import data.Position;
+
 /**
  * @author Raphaël
  *
@@ -13,7 +15,7 @@ class StaticVeloStation {
 	Integer number
 	String name
 	String adress
-	//Position position
+	Position position
 	
 	String toString() {
 		def res = "$number $name $adress\n"

@@ -3,7 +3,7 @@ package interfacejava.veloToulouse;
 import javax.swing.JOptionPane;
 
 import veloToulouse.VeloStation;
-import veloToulouse.VeloStationService;
+import veloToulouse.service.VeloStationService;
 
 /**
  *

@@ -1,11 +1,14 @@
 /**
  * 
  */
-package veloToulouse
+package veloToulouse.service
 
 import java.util.ArrayList;
 
 import busMetro.LineDestArret;
+import data.Position
+import veloToulouse.StaticVeloStation;
+import veloToulouse.VeloStation;
 import veloToulouse.client.VeloStationClient
 
 /**
@@ -60,10 +63,12 @@ class VeloStationService {
 		def json = veloStationClient.getAllJsonVeloStation()
 		if (json) {
 			json.each {
+				Position p = new Position(latitude:it.position.lat, longitude:it.position.lng)
 				veloStationList.add(new StaticVeloStation(
 					number:it.number,
 					name:it.name,
-					adress:it.address))
+					adress:it.address,
+					position:p))
 			}
 		}
 		else {

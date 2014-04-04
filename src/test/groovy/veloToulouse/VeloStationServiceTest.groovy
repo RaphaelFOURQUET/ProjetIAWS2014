@@ -3,6 +3,8 @@
  */
 package veloToulouse
 
+import veloToulouse.service.VeloStationService;
+
 /**
  * @author Raphaël
  *
