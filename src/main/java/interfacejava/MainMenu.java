@@ -5,6 +5,7 @@ package interfacejava;
 
 import interfacejava.busMetro.ChooseLineDestFrame;
 import interfacejava.busMetro.SocialLineFrame;
+import interfacejava.estimationTrajet.EstimationTrajetFrame;
 import interfacejava.veloToulouse.ChooseVeloStationFrame;
 
 /**
@@ -54,7 +55,12 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Estimation de trajets.");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	jButton3ActionPerformed(evt);
+            }
+        });
 
         veloDisponibleButton.setText("Vélos disponibles ?");
         veloDisponibleButton.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +136,10 @@ public class MainMenu extends javax.swing.JFrame {
 	
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
     	new SocialLineFrame().setVisible(true);
+    }
+	
+	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    	new EstimationTrajetFrame().setVisible(true);
     }
     
     private void veloDisponibleButtonActionPerformed(java.awt.event.ActionEvent evt) {
