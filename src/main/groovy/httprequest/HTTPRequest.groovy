@@ -10,7 +10,7 @@ import static groovyx.net.http.ContentType.JSON
 
 /**
  * @author Raphaël
- *
+ * Envoie les requetes http et recupere le json associe.
  */
 class HTTPRequest {
 	
