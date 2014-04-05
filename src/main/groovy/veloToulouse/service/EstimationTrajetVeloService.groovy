@@ -23,27 +23,42 @@ class EstimationTrajetVeloService {
 	 * @param adresse destination voulue.
 	 * @return String temps de trajet.
 	 */
-	String calculDureeTrajet(String adresse) {
+	String calculDureeTrajet(String adresseDepart, String adresseArrivee) {
 		String res
 		//adresse UPS : peut etre mettre ces chiffres dans MylogsData?
 		//Position pUPS = new Position(latitude:"43.561566", longitude:"1.462757")
-		String adresseUPS = "Toulouse 118 Rte de narbonne"
+		//String adresseUPS = "Toulouse 118 Rte de narbonne"
 		
-		//Transformer l'adresse en Position : Geocoding.
-		Position pos = toPosition(adresse)
+		//Transformer adresse depart en Position : Geocoding
+		Position posDepart = toPosition(adresseDepart)
+		//VeloStation la plus proche depart
+		StaticVeloStation vsProcheDepart = nearestVeloStation(posDepart)
+		String adresseStationDepart = vsProcheDepart.getAdress()
 		
-		//Chercher la station velo la plus proche
-		StaticVeloStation vsProche = nearestVeloStation(pos)
-		String adressStation = vsProche.getAdress()
+		//calculer temps à pied Depart-StationDepart : distanceMatrix
+		//String r0 = walkingTime(adresseDepart, adresseStationDepart)
+		//Plus précis avec els coordonnées directement sinon risqe de mal interpreter l adresse velostation
+		String coordDepart = toStringCoord(posDepart)
+		String coordStationDepart = toStringCoord(vsProcheDepart.getPosition())
+		String r0 = walkingTime(coordDepart, coordStationDepart)
 		
-		//calculer temps à pied Station-adresse : distanceMatrix
-		String r1 = walkingTime(adressStation, adresse)
+		//Transformer l'adresseArrivee en Position : Geocoding.
+		Position posArrivee = toPosition(adresseArrivee)
 		
-		//calculer temps a velo UPS-Station : distanceMatrix
-		String r2 = bicyclingTime(adresseUPS, adressStation)
+		//Chercher la station velo la plus proche Arrivee
+		StaticVeloStation vsProcheArrivee = nearestVeloStation(posArrivee)
+		String adressStationArrivee = vsProcheArrivee.getAdress()
+		
+		//calculer temps à pied StationArrivee-adresseArrivee : distanceMatrix
+		String cSA = toStringCoord(vsProcheArrivee.getPosition())
+		String cAA = toStringCoord(posArrivee)
+		String r1 = walkingTime(cSA, cAA)
+		
+		//calculer temps a velo entre les deux stations : distanceMatrix
+		String r2 = bicyclingTime(coordStationDepart, cSA)
 		
 		//Aditionner les deux temps r1 et r2.
-		Integer r = Integer.parseInt(r1)+Integer.parseInt(r2)
+		Integer r = Integer.parseInt(r0)+Integer.parseInt(r1)+Integer.parseInt(r2)
 		res = toTime(r)
 		
 		res
@@ -61,18 +76,22 @@ class EstimationTrajetVeloService {
 		p
 	}
 	
-	String walkingTime(String aStation, String adresse) {
+	String toStringCoord(Position p) {
+		return p.getLatitude()+","+p.getLongitude()
+	}
+	
+	String walkingTime(String a1, String a2) {
 		String res
-		def json = etvc.walkingJSONTime(parseString(aStation), parseString(adresse))
+		def json = etvc.walkingJSONTime(parseString(a1), parseString(a2))
 		if(json) {
 			res = json.rows[0].elements[0].duration.value
 		}
 		res
 	}
 	
-	String bicyclingTime(String adresseUPS, String adresseStation) {
+	String bicyclingTime(String a1, String a2) {
 		String res
-		def json = etvc.bicyclingJSONTime(parseString(adresseUPS), parseString(adresseStation))
+		def json = etvc.bicyclingJSONTime(parseString(a1), parseString(a2))
 		if(json) {
 			res = json.rows[0].elements[0].duration.value
 		}

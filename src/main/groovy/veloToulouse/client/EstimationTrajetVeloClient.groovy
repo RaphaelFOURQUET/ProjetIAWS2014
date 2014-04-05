@@ -17,12 +17,12 @@ class EstimationTrajetVeloClient {
 		HTTPRequest.Request("https://maps.googleapis.com/maps/api/geocode/json?address=${adresse}&sensor=false&key=${MyLogsData.GOOGLE_KEY}")
 	}
 	
-	def walkingJSONTime(String aStation,String adresse) {
-		HTTPRequest.Request("https://maps.googleapis.com/maps/api/distancematrix/json?origins=${aStation}&destinations=${adresse}&mode=walking&language=fr-FR&sensor=false&key=${MyLogsData.GOOGLE_KEY}")
+	def walkingJSONTime(String a1,String adresse) {
+		HTTPRequest.Request("https://maps.googleapis.com/maps/api/distancematrix/json?origins=${a1}&destinations=${adresse}&mode=walking&language=fr-FR&sensor=false&key=${MyLogsData.GOOGLE_KEY}")
 	}
 	
-	def bicyclingJSONTime(String adresseUPS, String adresseStation) {
-		HTTPRequest.Request("https://maps.googleapis.com/maps/api/distancematrix/json?origins=${adresseUPS}&destinations=${adresseStation}&mode=bicycling&language=fr-FR&sensor=false&key=${MyLogsData.GOOGLE_KEY}")
+	def bicyclingJSONTime(String a1, String a2) {
+		HTTPRequest.Request("https://maps.googleapis.com/maps/api/distancematrix/json?origins=${a1}&destinations=${a2}&mode=bicycling&language=fr-FR&sensor=false&key=${MyLogsData.GOOGLE_KEY}")
 	}
 
 }
