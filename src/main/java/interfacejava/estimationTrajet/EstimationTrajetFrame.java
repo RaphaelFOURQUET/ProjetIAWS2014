@@ -119,9 +119,9 @@ public class EstimationTrajetFrame extends javax.swing.JFrame {
        String adresseDepart = adresseDepartTextField.getText();
        String adresseArrivee = adresseArriveeTextField.getText();
        //appel fonctions nécessaires au calcul du temps de trajet.
-       String res = etvs.calculDureeTrajet(adresseDepart, adresseArrivee);
+       String res = etvs.calculItineraire(adresseDepart, adresseArrivee);
        //Affichage JoptionPane reponse.
-       JOptionPane.showMessageDialog( this, "La durée de trajet à vélo estimé depuis "+adresseDepart+" pour "+adresseArrivee+" est de "+res+" !", "Estimation trajet à vélo.", JOptionPane.INFORMATION_MESSAGE);
+       JOptionPane.showMessageDialog( this, "Itinéraire conseillé :"+res, "Estimation trajet à vélo.", JOptionPane.INFORMATION_MESSAGE);
     }                                          
 
     private void transportsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 

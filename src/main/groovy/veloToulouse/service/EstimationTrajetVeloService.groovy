@@ -20,14 +20,12 @@ class EstimationTrajetVeloService {
 	
 	/**
 	 * Calcule le temps de trajet velo depuis ups jusqu'a l'adresse donnee.
-	 * @param adresse destination voulue.
+	 * @param adresseDepart depart trajet.
+	 * @param adresseArrivee destination voulue.
 	 * @return String temps de trajet.
 	 */
 	String calculDureeTrajet(String adresseDepart, String adresseArrivee) {
 		String res
-		//adresse UPS : peut etre mettre ces chiffres dans MylogsData?
-		//Position pUPS = new Position(latitude:"43.561566", longitude:"1.462757")
-		//String adresseUPS = "Toulouse 118 Rte de narbonne"
 		
 		//Transformer adresse depart en Position : Geocoding
 		Position posDepart = toPosition(adresseDepart)
@@ -47,7 +45,7 @@ class EstimationTrajetVeloService {
 		
 		//Chercher la station velo la plus proche Arrivee
 		StaticVeloStation vsProcheArrivee = nearestVeloStation(posArrivee)
-		String adressStationArrivee = vsProcheArrivee.getAdress()
+		String adresseStationArrivee = vsProcheArrivee.getAdress()
 		
 		//calculer temps à pied StationArrivee-adresseArrivee : distanceMatrix
 		String cSA = toStringCoord(vsProcheArrivee.getPosition())
@@ -60,6 +58,54 @@ class EstimationTrajetVeloService {
 		//Aditionner les deux temps r1 et r2.
 		Integer r = Integer.parseInt(r0)+Integer.parseInt(r1)+Integer.parseInt(r2)
 		res = toTime(r)
+		
+		res
+	}
+	
+	/**
+	 * Idem calculDureeTrajet mais renvoie plus d'infos
+	 * @param adresseDepart depart trajet.
+	 * @param adresseArrivee destination voulue.
+	 * @return String Etapes + temps chaque etape.
+	 */
+	String calculItineraire(String adresseDepart, String adresseArrivee) { 
+		String res
+		
+		//Transformer adresse depart en Position : Geocoding
+		Position posDepart = toPosition(adresseDepart)
+		//VeloStation la plus proche depart
+		StaticVeloStation vsProcheDepart = nearestVeloStation(posDepart)
+		String adresseStationDepart = vsProcheDepart.getAdress()
+		
+		//calculer temps à pied Depart-StationDepart : distanceMatrix
+		//String r0 = walkingTime(adresseDepart, adresseStationDepart)
+		//Plus précis avec els coordonnées directement sinon risqe de mal interpreter l adresse velostation
+		String coordDepart = toStringCoord(posDepart)
+		String coordStationDepart = toStringCoord(vsProcheDepart.getPosition())
+		String r0 = walkingTime(coordDepart, coordStationDepart)
+		
+		//Transformer l'adresseArrivee en Position : Geocoding.
+		Position posArrivee = toPosition(adresseArrivee)
+		
+		//Chercher la station velo la plus proche Arrivee
+		StaticVeloStation vsProcheArrivee = nearestVeloStation(posArrivee)
+		String adresseStationArrivee = vsProcheArrivee.getAdress()
+		
+		//calculer temps à pied StationArrivee-adresseArrivee : distanceMatrix
+		String cSA = toStringCoord(vsProcheArrivee.getPosition())
+		String cAA = toStringCoord(posArrivee)
+		String r1 = walkingTime(cSA, cAA)
+		
+		//calculer temps a velo entre les deux stations : distanceMatrix
+		String r2 = bicyclingTime(coordStationDepart, cSA)
+		
+		//Aditionner les deux temps r1 et r2.
+		Integer r = Integer.parseInt(r0)+Integer.parseInt(r1)+Integer.parseInt(r2)
+		//maj res
+		res = "\nDépart de "+adresseDepart+" à pied vers station "+adresseStationDepart+", temps estimé : "+toTime(Integer.parseInt(r0))+
+		"\nTrajet à vélo vers station "+adresseStationArrivee+", temps estimé : "+toTime(Integer.parseInt(r2))+
+		"\nTrajet à pied vers "+adresseArrivee+", temps estimé : "+toTime(Integer.parseInt(r1))+
+		"\nDurée de trajet totale estimée : "+toTime(r)
 		
 		res
 	}
