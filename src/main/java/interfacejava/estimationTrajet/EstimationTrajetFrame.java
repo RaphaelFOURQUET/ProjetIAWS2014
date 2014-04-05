@@ -116,12 +116,15 @@ public class EstimationTrajetFrame extends javax.swing.JFrame {
 
     private void veloButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
        EstimationTrajetVeloService etvs = new EstimationTrajetVeloService();
-       String adresseDepart = adresseDepartTextField.getText();
-       String adresseArrivee = adresseArriveeTextField.getText();
-       //appel fonctions nécessaires au calcul du temps de trajet.
-       String res = etvs.calculItineraire(adresseDepart, adresseArrivee);
-       //Affichage JoptionPane reponse.
-       JOptionPane.showMessageDialog( this, "Itinéraire conseillé :"+res, "Estimation trajet à vélo.", JOptionPane.INFORMATION_MESSAGE);
+       if(!adresseVide()) {
+    	   String adresseDepart = adresseDepartTextField.getText();
+    	   String adresseArrivee = adresseArriveeTextField.getText();
+    	   //appel fonctions nécessaires au calcul du temps de trajet.
+    	   String res = etvs.calculItineraire(adresseDepart, adresseArrivee);
+    	   //Affichage JoptionPane reponse.
+    	   JOptionPane.showMessageDialog( this, "Itinéraire conseillé :"+res, "Estimation trajet à vélo.", JOptionPane.INFORMATION_MESSAGE);
+       }
+       else JOptionPane.showMessageDialog( this, "Erreur : Au moins l'une des adresses nécessaire est vide.", "Estimation trajet à vélo.", JOptionPane.ERROR_MESSAGE);
     }                                          
 
     private void transportsButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -130,7 +133,11 @@ public class EstimationTrajetFrame extends javax.swing.JFrame {
  	   //TODO appel fonctions nécessaires au calcul du temps de trajet.
  	   //Affichage JoptionPane reponse.
  	   JOptionPane.showMessageDialog( this, "Erreur : Cette fonctionnalité n'est pas encore disponible.", "Estimation trajet en bus/métro.", JOptionPane.ERROR_MESSAGE);
-    }                                                
+    }    
+    
+    private boolean adresseVide() {
+    	return (adresseDepartTextField.getText().isEmpty() || adresseArriveeTextField.getText().isEmpty() );
+    }
 
     /**
      * @param args the command line arguments
