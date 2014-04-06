@@ -36,10 +36,10 @@ class DBInteraction {
 	 * @return Database au sens couchdb4j.
 	 */
 	Database createOrGetDatabase(String dbName, Session dbSession) {
-		Database db = dbSession.createDatabase(dbName)
-		/*Si db de ce nom existe deja*/
+		Database db = dbSession.getDatabase(dbName)
+		/*Si db n'existe pas*/
 		if(db==null)
-			db = dbSession.getDatabase(dbName);
+			db = dbSession.createDatabase(dbName)
 			
 		return db
 		
