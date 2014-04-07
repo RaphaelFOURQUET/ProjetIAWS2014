@@ -33,7 +33,7 @@ class MyLogsData {
 	/**
 	 * Nom de la BdD utilisée dans couchDB.
 	 */
-	private static final String DB_NAME = "iawsdb"
+	private static final String DB_NAME = "iawsdb2014fr"
 	
 	/**
 	 * Cle acces API GOOGLE utilisees.

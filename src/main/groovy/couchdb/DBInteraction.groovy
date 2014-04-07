@@ -28,7 +28,7 @@ class DBInteraction {
 	}
 	
 	//Genere un warning quand on essaie de creer une db existante? faire autrement ?
-	//Peut etre plutôt essayer de récupérer en premier.
+	//Peut etre plutôt essayer de récupérer en premier -> erreur si get dbname inexistant...
 	/**
 	 * Creer ou recuperer une database couchdb.
 	 * @param dbName Nom database.
@@ -36,10 +36,10 @@ class DBInteraction {
 	 * @return Database au sens couchdb4j.
 	 */
 	Database createOrGetDatabase(String dbName, Session dbSession) {
-		Database db = dbSession.getDatabase(dbName)
-		/*Si db n'existe pas*/
+		Database db = dbSession.createDatabase(dbName)
+		/*Si db existe deja*/
 		if(db==null)
-			db = dbSession.createDatabase(dbName)
+			db = dbSession.getDatabase(dbName)
 			
 		return db
 		
