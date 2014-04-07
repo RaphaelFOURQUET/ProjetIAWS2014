@@ -21,14 +21,31 @@
         <name>central-test</name>
 		<url>https://oss.sonatype.org/content/repositories/central-test</url>
     </repository>
+    
+    <!-- Ajout 2 repos pour publication test 1 -->
+    <!-- <repository>
+        <id>maven-repository.dev.java.net</id>
+        <name>Java.net Repository for Maven 1</name>
+		<url>https://download.java.net/maven/1/</url>
+		<layout>legacy</layout>
+    </repository>
+    
+    <repository>
+        <id>maven2-repository.dev.java.net</id>
+        <name>Java.net Repository for Maven 2</name>
+		<url>https://download.java.net/maven/2/</url>
+    </repository> -->
+    
+    
   </repositories>
 
  <dependencies>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
+                <version>3.8.1</version>
                 <scope>test</scope>
-                <version>4.2</version>
+                <!-- <version>4.2</version> -->
             </dependency>
 
             <dependency>
@@ -54,6 +71,22 @@
       			<artifactId>couchdb4j</artifactId>
       			<version>0.3.0-tobrien-1</version>
     		</dependency>
+    		
+    		<!-- Test Publication 1-->
+    		<!-- <dependency>
+     			<groupId>com.sun.xml.ws</groupId>
+      			<artifactId>jaxws-rt</artifactId>
+      			<version>2.1.7</version>
+    		</dependency> -->
+    		
+    		<!-- JAX-WS RT Test publication 2-->
+   			<dependency>
+       			<groupId>com.sun.xml.ws</groupId>
+       			<artifactId>jaxws-rt</artifactId>
+       			<version>2.2.5</version>
+   			</dependency>
+    		
+    		
             
         </dependencies>
 
@@ -92,11 +125,39 @@
                         </execution>
                     </executions>
                 </plugin>
+                
+                <!-- Rajout test publication 1-->
+                <!-- <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>jaxws-maven-plugin</artifactId>>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>wsgen</goal>
+                            </goals>
+                            <configuration>
+                       			<sei></sei>
+                       			<genWsdl>true</genWsdl>
+                       			<keep>true</keep>
+                    		</configuration>
+                        </execution>
+                    </executions>
+                </plugin> -->
+                
+                <!-- Test publication 2 -->
+               	<plugin>
+               		<groupId>org.codehaus.mojo</groupId>
+               		<artifactId>tomcat-maven-plugin</artifactId>
+               		<version>2.2</version>
+               		<configuration>
+                   		<path>/ProjetIAWS2014</path>
+               		</configuration>
+           		</plugin>
+                
             </plugins>
             
             <!-- </pluginManagement> -->
-            
-            
+                 
         </build>
     
 </project>

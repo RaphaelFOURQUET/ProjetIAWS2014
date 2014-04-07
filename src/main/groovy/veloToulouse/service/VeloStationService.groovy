@@ -3,14 +3,18 @@
  */
 package veloToulouse.service
 
-import java.util.ArrayList;
+import java.util.ArrayList
 
-import busMetro.LineDestArret;
+import busMetro.LineDestArret
 import data.Position
-import veloToulouse.StaticVeloStation;
+import veloToulouse.StaticVeloStation
 import veloToulouse.VeloStation;
 import veloToulouse.client.VeloStationClient
 
+import javax.jws.WebService
+
+//Annotation WebService tentative de publication webservice.
+@WebService
 /**
  * @author Raphaël
  * Service : Servira pour les cas d'utilisation 3 et 4 notamment.
